@@ -20,7 +20,10 @@ export default async function HomePage() {
             MINI NOMU SHOP
           </h1>
           <p className="font-mono text-ink mt-2">
-            — bi ulsuj bna, ta yaaraarai —
+            — bi ulsuj bna - 
+          </p>
+          <p className="font-mono text-ink mt-2">
+            - ta yaaraarai —
           </p>
         </div>
 

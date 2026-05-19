@@ -37,11 +37,11 @@ export default function DashboardPage() {
   }, [])
 
   return (
-    <main className="px-6 py-10 max-w-4xl mx-auto">
+    <main className="px-4 sm:px-6 py-6 sm:py-10 max-w-4xl mx-auto">
 
       {/* Header */}
-      <div className="flex justify-between items-center mb-10 border-4 border-ink p-4 shadow-brutal-lg">
-        <h1 className="font-display text-4xl text-ink">DASHBOARD</h1>
+      <div className="flex justify-between items-center mb-6 border-4 border-ink p-4 shadow-brutal-lg">
+        <h1 className="font-display text-3xl sm:text-4xl text-ink">DASHBOARD</h1>
         <button
           onClick={logout}
           className="font-mono text-sm border-2 border-ink px-3 py-1 shadow-brutal hover:shadow-none transition-all"
@@ -62,7 +62,7 @@ export default function DashboardPage() {
             key={stat.label}
             className={`border-4 border-ink shadow-brutal p-4 text-center ${stat.bg}`}
           >
-            <div className="font-display text-5xl text-ink">{stat.value}</div>
+            <div className="font-display text-4xl sm:text-5xl text-ink">{stat.value}</div>
             <div className="font-mono text-xs text-ink mt-1">{stat.label}</div>
           </div>
         ))}
