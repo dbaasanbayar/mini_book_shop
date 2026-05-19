@@ -17,7 +17,7 @@ export default async function HomePage() {
         {/* Header */}
         <div className="border-4 border-ink mb-10 p-6 shadow-brutal-lg text-center">
           <h1 className="font-display text-6xl text-ink tracking-widest">
-            MINI NOMO SHOP
+            MINI NOMU SHOP
           </h1>
           <p className="font-mono text-ink mt-2">
             — bi ulsuj bna, ta yaaraarai —
@@ -34,12 +34,13 @@ export default async function HomePage() {
             {books.map((book) => (
               <Link href={`/books/${book.id}`} key={book.id}>
                 <div className="border-4 border-ink shadow-brutal bg-white hover:shadow-brutal-lg hover:-translate-y-1 transition-all hover:bg-pink-100 cursor-pointer">
-                  <div className="relative w-full h-52 border-b-4 border-ink">
+                  <div className="w-full border-b-4 border-ink">
                     <Image
                       src={book.imageUrl}
                       alt={book.title}
-                      fill
-                      className="object-cover"
+                      width={800}
+                      height={1000}
+                      className="w-full h-auto object-contain"
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                     />
                   </div>
