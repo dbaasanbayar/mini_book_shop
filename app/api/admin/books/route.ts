@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 
 export async function GET(request: NextRequest) {
-    if (!isAuthenticated(request)) {
+    if (!await isAuthenticated(request)) {
         return NextResponse.json({error: "Unauthorized"}, {status: 401})
     }
 
@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-    if (!isAuthenticated(request)) {
+    if (!await isAuthenticated(request)) {
         return NextResponse.json({error: "Unauthorized"}, { status: 401})
     }
 

@@ -1,17 +1,15 @@
-import { NextRequest } from "next/server";
-import { verifyToken } from "./auth";
+import { verifyToken } from './auth'
+import { NextRequest } from 'next/server'
 
+export async function isAuthenticated(request: NextRequest) {
+  const authHeader = request.headers.get('authorization')
 
-export function isAuthenticated(request: NextRequest) {
-    const authHeader = request.headers.get("authorization")
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return false
+  }
 
-    if (!authHeader || !authHeader.startsWith("Bearer")) {
-        return false
-    }
+  const token = authHeader.split(' ')[1]
+  const payload = await verifyToken(token)
 
-    const token = authHeader.split(" ")[1]
-    const payload = verifyToken(token)
-
-    return payload !== null
+  return payload !== null
 }
-
