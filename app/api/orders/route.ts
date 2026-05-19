@@ -30,7 +30,7 @@ export async function POST(request: Request) {
   })
 
   // Send email notification
-  await resend.emails.send({
+  const emailResult = await resend.emails.send({
     from: 'Book Shop <onboarding@resend.dev>',
     to: process.env.ADMIN_EMAIL!,
     subject: `📚 New Order — ${book.title}`,
@@ -65,6 +65,8 @@ export async function POST(request: Request) {
       </div>
     `,
   })
+
+  console.log('Email result:', emailResult)
 
   return NextResponse.json(order, { status: 201 })
 }
