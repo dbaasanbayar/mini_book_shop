@@ -57,7 +57,7 @@ export default function OrderForm({ bookId }: { bookId: number }) {
             value={form.buyerInstagram}
             onChange={(e) => setForm({ ...form, buyerInstagram: e.target.value })}
             className="w-full border-4 border-ink px-2 py-1.5 font-mono text-sm bg-cream shadow-brutal focus:outline-none"
-            placeholder="@handle"
+            placeholder="@huurhunbromaa"
           />
         </div>
       </div>
@@ -68,7 +68,7 @@ export default function OrderForm({ bookId }: { bookId: number }) {
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className="w-full border-4 border-ink px-2 py-1.5 font-mono text-sm bg-cream shadow-brutal focus:outline-none h-14 resize-none"
-          placeholder="Асуулт байна уу?"
+          placeholder="asuult baih?"
         />
       </div>
 

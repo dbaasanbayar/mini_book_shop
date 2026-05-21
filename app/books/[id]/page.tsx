@@ -72,7 +72,7 @@ export default async function BookPage({
             SOLD OUT
           </div>
         ) : (
-          <div className="border-4 border-ink shadow-brutal bg-white p-4">
+          <div className="border-4 border-ink shadow-brutal bg-pink-100 p-4">
             <h2 className="font-display text-2xl text-ink mb-3">
               BI ZUGEER ENIIG AVMAAR BGAA BHGU YU!
             </h2>

@@ -36,7 +36,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
             {books.map((book) => (
               <Link href={`/books/${book.id}`} key={book.id}>
-                <div className="border-4 border-ink shadow-brutal bg-white hover:shadow-brutal-lg hover:-translate-y-1 transition-all cursor-pointer flex flex-col">
+                <div className="border-4 border-ink shadow-brutal bg-pink-100 hover:shadow-brutal-lg hover:-translate-y-1 transition-all cursor-pointer flex flex-col hover:bg-white">
                   <div className="relative w-full h-48 sm:h-64 border-b-4 border-ink bg-white">
                     <Image
                       src={book.imageUrl}
@@ -64,7 +64,7 @@ export default async function HomePage() {
                     {/* Order button — always at bottom */}
                     <div className="mt-auto pt-2">
                       <div className="border-4 border-ink bg-ink text-cream font-display text-sm text-center py-1.5">
-                        ORDER →
+                        Захиалах →
                       </div>
                     </div>
                   </div>
