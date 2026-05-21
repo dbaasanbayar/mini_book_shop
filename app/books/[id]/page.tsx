@@ -22,72 +22,65 @@ export default async function BookPage({
   if (!book) notFound()
 
   return (
-    <main className="min-h-screen bg-cream px-4 sm:px-6 py-6 sm:py-10">
-      <div className="max-w-3xl mx-auto">
+    <main className="min-h-screen bg-cream">
 
-        {/* Back */}
+      {/* Full screen image background */}
+      <div className="relative w-full h-[50vh] sm:h-[55vh]">
+        <Image
+          src={book.imageUrl}
+          alt={book.title}
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+
+        {/* Dark overlay at bottom for readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+        {/* Back button on top of image */}
         <Link
           href="/"
-          className="font-mono text-sm border-2 border-ink px-3 py-1 shadow-brutal inline-block mb-6 hover:shadow-none transition-all"
+          className="absolute top-4 left-4 font-mono text-xs bg-cream border-2 border-ink px-3 py-1 shadow-brutal hover:shadow-none transition-all"
         >
-          ← BACK TO SHOP
+          ← BACK
         </Link>
 
-        <div className="border-4 border-ink shadow-brutal-lg bg-white">
-
-          {/* Book image — taller on phone, shorter on desktop */}
-          <div className="relative w-full h-64 sm:h-80 md:h-96 border-b-4 border-ink">
-            <Image
-              src={book.imageUrl}
-              alt={book.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 768px"
-              priority
-            />
-          </div>
-
-          <div className="p-4 sm:p-6">
-
-            {/* Title + price — stack on phone, side by side on desktop */}
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3">
-              <div>
-                <h1 className="font-display text-4xl sm:text-5xl text-ink leading-tight">
-                  {book.title}
-                </h1>
-                <p className="font-mono text-sm sm:text-base text-ink mt-1">
-                  by {book.author}
-                </p>
-              </div>
-
-              <div className="flex sm:flex-col sm:text-right flex-row items-center sm:items-end gap-3">
-                <div className="font-display text-3xl sm:text-4xl text-ink">
-                  {book.price.toLocaleString()}₮
-                </div>
-                <span className="font-mono text-xs border-2 border-ink px-2 py-1">
-                  {book.condition}
-                </span>
-              </div>
+        {/* Book title + price on image */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h1 className="font-display text-3xl sm:text-5xl leading-tight drop-shadow">
+            {book.title}
+          </h1>
+          <div className="flex justify-between items-center mt-1">
+            <p className="font-mono text-sm opacity-90">by {book.author}</p>
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-xs bg-white/20 border border-white/40 px-2 py-0.5">
+                {book.condition}
+              </span>
+              <span className="font-display text-2xl">
+                {book.price.toLocaleString()}₮
+              </span>
             </div>
-      
-            {/* Order section */}
-            {book.status === 'sold' ? (
-              <div className="mt-6 border-4 border-ink bg-ink text-cream font-display text-2xl sm:text-3xl text-center py-4">
-                SOLD OUT
-              </div>
-            ) : (
-              <div className="mt-6">
-                <h2 className="font-display text-2xl sm:text-3xl text-ink mb-4">
-                  BI ZUGEER ENIIG AVMAAR BGAA BHGU YU!
-                </h2>
-                <OrderForm bookId={book.id} />
-              </div>
-            )}
-
           </div>
         </div>
-
       </div>
+
+      {/* Order form — compact, fits on phone screen */}
+      <div className="px-4 sm:px-6 py-4 max-w-3xl mx-auto">
+        {book.status === 'sold' ? (
+          <div className="border-4 border-ink bg-ink text-cream font-display text-3xl text-center py-6">
+            SOLD OUT
+          </div>
+        ) : (
+          <div className="border-4 border-ink shadow-brutal bg-white p-4">
+            <h2 className="font-display text-2xl text-ink mb-3">
+              BI ZUGEER ENIIG AVMAAR BGAA BHGU YU!
+            </h2>
+            <OrderForm bookId={book.id} />
+          </div>
+        )}
+      </div>
+
     </main>
   )
 }

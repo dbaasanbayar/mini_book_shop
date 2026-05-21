@@ -34,43 +34,46 @@ export default function OrderForm({ bookId }: { bookId: number }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label className="font-mono text-sm text-ink block mb-1">TANII NER *</label>
-        <input
-          type="text"
-          required
-          value={form.buyerName}
-          onChange={(e) => setForm({ ...form, buyerName: e.target.value })}
-          className="w-full border-4 border-ink px-3 py-2 font-mono bg-cream shadow-brutal focus:outline-none"
-          placeholder="kat"
-        />
+    <form onSubmit={handleSubmit} className="space-y-2">
+
+      <div className="grid grid-cols-2 gap-2">
+        <div>
+          <label className="font-mono text-xs text-ink block mb-1">НЭР *</label>
+          <input
+            type="text"
+            required
+            value={form.buyerName}
+            onChange={(e) => setForm({ ...form, buyerName: e.target.value })}
+            className="w-full border-4 border-ink px-2 py-1.5 font-mono text-sm bg-cream shadow-brutal focus:outline-none"
+            placeholder="kat"
+          />
+        </div>
+
+        <div>
+          <label className="font-mono text-xs text-ink block mb-1">INSTAGRAM *</label>
+          <input
+            type="text"
+            required
+            value={form.buyerInstagram}
+            onChange={(e) => setForm({ ...form, buyerInstagram: e.target.value })}
+            className="w-full border-4 border-ink px-2 py-1.5 font-mono text-sm bg-cream shadow-brutal focus:outline-none"
+            placeholder="@handle"
+          />
+        </div>
       </div>
 
       <div>
-        <label className="font-mono text-sm text-ink block mb-1">INSTAGRAM *</label>
-        <input
-          type="text"
-          required
-          value={form.buyerInstagram}
-          onChange={(e) => setForm({ ...form, buyerInstagram: e.target.value })}
-          className="w-full border-4 border-ink px-3 py-2 font-mono bg-cream shadow-brutal focus:outline-none"
-          placeholder="@huurhunbromaa"
-        />
-      </div>
-
-      <div>
-        <label className="font-mono text-sm text-ink block mb-1">MESSAGE (OPTIONAL)</label>
+        <label className="font-mono text-xs text-ink block mb-1">МЕССЕЖ (заавал биш)</label>
         <textarea
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
-          className="w-full border-4 border-ink px-3 py-2 font-mono bg-cream shadow-brutal focus:outline-none h-24 resize-none"
-          placeholder="Asuult baih ?"
+          className="w-full border-4 border-ink px-2 py-1.5 font-mono text-sm bg-cream shadow-brutal focus:outline-none h-14 resize-none"
+          placeholder="Асуулт байна уу?"
         />
       </div>
 
       {error && (
-        <p className="font-mono text-sm text-red-600 border-2 border-red-600 px-3 py-2">
+        <p className="font-mono text-xs text-red-600 border-2 border-red-600 px-2 py-1">
           {error}
         </p>
       )}
@@ -78,10 +81,11 @@ export default function OrderForm({ bookId }: { bookId: number }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full border-4 border-ink bg-ink text-cream font-display text-2xl py-3 shadow-brutal hover:shadow-none transition-all disabled:opacity-50"
+        className="w-full border-4 border-ink bg-ink text-cream font-display text-xl py-2 shadow-brutal hover:shadow-none transition-all disabled:opacity-50"
       >
-        {loading ? 'SENDING...' : 'SEND ORDER'}
+        {loading ? 'ИЛГЭЭЖ БАЙНА...' : 'ЗАХИАЛАХ →'}
       </button>
+
     </form>
   )
 }
