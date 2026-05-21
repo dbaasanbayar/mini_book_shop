@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
       {
         folder: 'book-shop',
         transformation: [
-          { width: 400, height: 600, crop: 'fill', gravity: 'auto' },
+          { width: 1000, crop: 'limit' },
           { quality: 'auto', fetch_format: 'auto' },
         ],
       },

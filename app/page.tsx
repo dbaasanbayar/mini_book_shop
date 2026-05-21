@@ -37,34 +37,36 @@ export default async function HomePage() {
             {books.map((book) => (
               <Link href={`/books/${book.id}`} key={book.id}>
                 <div className="border-4 border-ink shadow-brutal bg-white hover:shadow-brutal-lg hover:-translate-y-1 transition-all cursor-pointer flex flex-col">
-                  <div className="w-full border-b-4 border-ink">
+                  <div className="w-full border-b-4 border-ink bg-white">
                     <Image
                       src={book.imageUrl}
                       alt={book.title}
-                      width={800}
+                      width={1000}
                       height={1000}
                       className="w-full h-auto object-contain"
                       sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 33vw"
                     />
                   </div>
                   <div className="p-2 sm:p-4 flex flex-col flex-1">
-                    <h2 className="font-display text-base sm:text-2xl text-ink leading-tight">
+                    <h2 className="font-display text-sm sm:text-2xl text-ink leading-tight line-clamp-2">
                       {book.title}
                     </h2>
-                    <p className="font-mono text-xs sm:text-sm text-ink mt-1">
+                    <p className="font-mono text-xs text-ink mt-1 truncate">
                       {book.author}
                     </p>
                     <div className="flex justify-between items-center mt-2">
-                      <span className="font-display text-base sm:text-xl text-ink">
+                      <span className="font-display text-sm sm:text-xl text-ink">
                         {book.price.toLocaleString()}₮
                       </span>
-                      <span className="font-mono text-xs border-2 border-ink px-1 sm:px-2 py-1">
+                      <span className="font-mono text-xs border-2 border-ink px-1 py-0.5">
                         {book.condition}
                       </span>
                     </div>
-                    {/* Order button — visible on phone, guides user */}
-                    <div className="mt-3 border-4 border-ink bg-ink text-cream font-display text-sm sm:text-base text-center py-1 sm:py-2">
-                      ORDER →
+                    {/* Order button — always at bottom */}
+                    <div className="mt-auto pt-2">
+                      <div className="border-4 border-ink bg-ink text-cream font-display text-sm text-center py-1.5">
+                        ORDER →
+                      </div>
                     </div>
                   </div>
                 </div>
