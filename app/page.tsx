@@ -33,10 +33,10 @@ export default async function HomePage() {
             No books available right now. Check back soon.
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
             {books.map((book) => (
               <Link href={`/books/${book.id}`} key={book.id}>
-                <div className="border-4 border-ink shadow-brutal bg-white hover:shadow-brutal-lg hover:-translate-y-1 transition-all hover:bg-pink-100 cursor-pointer">
+                <div className="border-4 border-ink shadow-brutal bg-white hover:shadow-brutal-lg hover:-translate-y-1 transition-all cursor-pointer flex flex-col">
                   <div className="w-full border-b-4 border-ink">
                     <Image
                       src={book.imageUrl}
@@ -44,23 +44,27 @@ export default async function HomePage() {
                       width={800}
                       height={1000}
                       className="w-full h-auto object-contain"
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 33vw"
                     />
                   </div>
-                  <div className="p-3 sm:p-4">
-                    <h2 className="font-display text-xl sm:text-2xl text-ink leading-tight">
+                  <div className="p-2 sm:p-4 flex flex-col flex-1">
+                    <h2 className="font-display text-base sm:text-2xl text-ink leading-tight">
                       {book.title}
                     </h2>
-                    <p className="font-mono text-sm text-ink mt-1">
+                    <p className="font-mono text-xs sm:text-sm text-ink mt-1">
                       {book.author}
                     </p>
-                    <div className="flex justify-between items-center mt-3">
-                      <span className="font-display text-xl text-ink">
+                    <div className="flex justify-between items-center mt-2">
+                      <span className="font-display text-base sm:text-xl text-ink">
                         {book.price.toLocaleString()}₮
                       </span>
-                      <span className="font-mono text-xs border-2 border-ink px-2 py-1">
+                      <span className="font-mono text-xs border-2 border-ink px-1 sm:px-2 py-1">
                         {book.condition}
                       </span>
+                    </div>
+                    {/* Order button — visible on phone, guides user */}
+                    <div className="mt-3 border-4 border-ink bg-ink text-cream font-display text-sm sm:text-base text-center py-1 sm:py-2">
+                      ORDER →
                     </div>
                   </div>
                 </div>
