@@ -36,7 +36,7 @@ export default async function BookPage({
         />
 
         {/* Dark overlay at bottom for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
 
         {/* Back button on top of image */}
         <Link
