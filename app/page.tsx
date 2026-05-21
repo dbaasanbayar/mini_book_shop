@@ -37,13 +37,12 @@ export default async function HomePage() {
             {books.map((book) => (
               <Link href={`/books/${book.id}`} key={book.id}>
                 <div className="border-4 border-ink shadow-brutal bg-white hover:shadow-brutal-lg hover:-translate-y-1 transition-all cursor-pointer flex flex-col">
-                  <div className="w-full border-b-4 border-ink bg-white">
+                  <div className="relative w-full h-48 sm:h-64 border-b-4 border-ink bg-white">
                     <Image
                       src={book.imageUrl}
                       alt={book.title}
-                      width={1000}
-                      height={1000}
-                      className="w-full h-auto object-contain"
+                      fill
+                      className="object-contain p-1"
                       sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 33vw"
                     />
                   </div>
