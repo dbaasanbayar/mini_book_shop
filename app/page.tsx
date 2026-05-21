@@ -47,7 +47,7 @@ export default async function HomePage() {
                     />
                   </div>
                   <div className="p-2 sm:p-4 flex flex-col flex-1">
-                    <h2 className="font-display text-sm sm:text-2xl text-ink leading-tight line-clamp-2">
+                    <h2 className="font-display text-sm sm:text-2xl text-ink leading-tight line-clamp-2 h-10 sm:h-14">
                       {book.title}
                     </h2>
                     <p className="font-mono text-xs text-ink mt-1 truncate">
