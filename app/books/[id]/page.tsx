@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 import OrderForm from '@/app/_components/OrderFrom'
 
-export const revalidate = 0
+export const revalidate = 60
 
 export default async function BookPage({
   params,
